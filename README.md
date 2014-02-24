@@ -1,5 +1,7 @@
 # XipSlideDownView
 
+Important! Has not been standardlized yet for general use and current state is very specific to the usecase for original project.
+
 [![Version](http://cocoapod-badges.herokuapp.com/v/XipSlideDownView/badge.png)](http://cocoadocs.org/docsets/XipSlideDownView)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/XipSlideDownView/badge.png)](http://cocoadocs.org/docsets/XipSlideDownView)
 
