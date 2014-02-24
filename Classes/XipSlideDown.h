@@ -3,15 +3,21 @@
 // Copyright (c) 2014 xip. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "XipSlideDownVCDelegate.h"
 
+@interface XipSlideDown : UIViewController
 
-@interface XipSlideDownMenu : UIViewController
+@property (weak, nonatomic) id<XipSlideDownVCDelegate> slideVCDelegate;
+
 @property (strong, nonatomic) UIViewController *topViewController;
 @property (strong, nonatomic) UIViewController *mainViewController;
+@property(nonatomic, assign) BOOL isOpen;
 
 
 - (id)initWithMenuViewController:(UIViewController *)mainViewController topViewController:(UIViewController *)topViewController;
-
-- (void)open:(BOOL)animated;
+- (void)setup;
+- (void)open;
+- (void)toggle;
+- (void)close;
 @end
