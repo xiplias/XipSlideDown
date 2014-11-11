@@ -16,18 +16,6 @@
 
 @implementation XipSlideDown
 
-- (id)initWithMenuViewController:(UIViewController *)mainViewController topViewController:(UIViewController *)topViewController {
-    self = [super initWithNibName:nil bundle:nil];
-    if (self) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.mainViewController = mainViewController;
-        self.topViewController = topViewController;
-
-        [self setup];
-    }
-    return self;
-}
-
 - (void)setup {
     [self addViewController:self.mainViewController];
     [self addViewController:self.topViewController];
@@ -38,13 +26,9 @@
 
     [self addChildViewController:self.mainViewController];
 
-    self.mainViewController.view.frame = self.view.bounds;
+    self.mainViewController.view.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
     [self.view addSubview:self.mainViewController.view];
     [self.mainViewController didMoveToParentViewController:self];
-
-    [self addChildViewController:self.topViewController];
-    [self.view insertSubview:self.topViewController.view aboveSubview:self.view];
-    [self.topViewController didMoveToParentViewController:self];
 
     self.overlayButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:self.overlayButton];
@@ -65,7 +49,14 @@
     }
 }
 
+- (void)setupTopViewController {
+    [self addChildViewController:self.topViewController];
+    [self.view insertSubview:self.topViewController.view aboveSubview:self.view];
+    [self.topViewController didMoveToParentViewController:self];
+}
+
 - (void)open {
+    
     if (self.slideVCDelegate && [self.slideVCDelegate respondsToSelector:@selector(topWillOpen)])
         [self.slideVCDelegate topWillOpen];
 

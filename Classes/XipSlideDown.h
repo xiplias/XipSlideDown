@@ -14,10 +14,9 @@
 @property (strong, nonatomic) UIViewController *mainViewController;
 @property(nonatomic, assign) BOOL isOpen;
 
-
-- (id)initWithMenuViewController:(UIViewController *)mainViewController topViewController:(UIViewController *)topViewController;
 - (void)setup;
 - (void)open;
 - (void)toggle;
 - (void)close;
+- (void)setupTopViewController;
 @end
